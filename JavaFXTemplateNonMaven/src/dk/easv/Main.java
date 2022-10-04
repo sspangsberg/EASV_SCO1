@@ -1,4 +1,4 @@
-package dk.easv.javafxstringexercises;
+package dk.easv;
 
 //Java imports
 import javafx.application.Application;
@@ -12,16 +12,7 @@ public class Main extends Application
 {
     public static void main(String[] args)
     {
-        //JavaFX version
         Application.launch();
-
-
-        //Console Version (using Scanner)
-        //Create object from class (using constructor)
-        //StringUtilities strUtil = new StringUtilities();
-
-        //Calling member function (method)
-        //strUtil.addTagsToTextConsole();
     }
 
     @Override
