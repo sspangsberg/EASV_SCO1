@@ -1,6 +1,6 @@
-package dk.easv.javafxstringexercises;
+package dk.easv.javafxstringexercises.gui;
 
-//Java imports
+// Java imports
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +10,10 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+// Project imports
+import dk.easv.javafxstringexercises.bll.StringUtilities;
+
+
 public class MainController implements Initializable {
 
     @FXML
@@ -17,15 +21,15 @@ public class MainController implements Initializable {
     @FXML
     private TextField txtOutput;
     @FXML
-    private Button btnStart;
-    @FXML
     private TextField txtInput;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //Load exercises
+
+        // Load exercises into combobox
         cmbExercises.getItems().add("Surround with tags");
         cmbExercises.getItems().add("Count characters");
+        // Add more exercises... :)
     }
 
     /**
@@ -34,24 +38,21 @@ public class MainController implements Initializable {
      */
     @FXML
     private void onClick(ActionEvent actionEvent) {
-        //Create utility object from class (using constructor)
+        // Create utility object from class (using constructor)
         StringUtilities strUtil = new StringUtilities();
 
+        // Get the selected index from the combobox (0,1,2,....)
         int selectedIndex = cmbExercises.getSelectionModel().getSelectedIndex();
+
+        // Prepare helper variables
         String output = "";
         String input = txtInput.getText();
 
-        switch (selectedIndex) {
-            case 0: //
-                output = strUtil.addTagsToText(input);
-                break;
-            case 1:
-
-                break;
-            case 2:
-                break;
-            default:
-                break;
+        if (selectedIndex == 0) {
+            output = strUtil.addAtSign(input);
+        }
+        if (selectedIndex == 1) {
+            output = strUtil.countCharacters(input) + "";
         }
 
         txtOutput.setText(output);

@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="276.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.javafxstringexercises.MainController">
+<AnchorPane prefHeight="276.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.javafxstringexercises.gui.MainController">
    <children>
       <TextField fx:id="txtInput" layoutX="82.0" layoutY="88.0" prefHeight="26.0" prefWidth="234.0" />
-      <Button fx:id="btnStart" layoutX="82.0" layoutY="140.0" mnemonicParsing="false" onAction="#onClick" prefHeight="41.0" prefWidth="234.0" text="Start" />
+      <Button layoutX="82.0" layoutY="140.0" mnemonicParsing="false" onAction="#onClick" prefHeight="41.0" prefWidth="234.0" text="Start" />
       <Label layoutX="25.0" layoutY="198.0" prefHeight="58.0" prefWidth="46.0" text="Output:" />
       <Label layoutX="25.0" layoutY="93.0" prefHeight="17.0" prefWidth="54.0" text="Input:" />
       <Label layoutX="25.0" layoutY="30.0" prefHeight="17.0" prefWidth="54.0" text="Choose:" />
