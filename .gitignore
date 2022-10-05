@@ -29,4 +29,6 @@ dist/
 nbdist/
 .nb-gradle/
 
+### MacOS specific ###
+.DS_Store
 
