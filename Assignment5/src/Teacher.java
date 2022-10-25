@@ -72,6 +72,7 @@ public class Teacher extends Person {
      *
      * @return
      */
+   /*
     @Override
     public String toString() {
         String output = super.getId() + "\t" +
@@ -82,4 +83,5 @@ public class Teacher extends Person {
 
         return output;
     }
+    */
 }
