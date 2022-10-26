@@ -1,4 +1,6 @@
-public class Person {
+package assignment5.be;
+
+public abstract class Person {
     private int id;
     private String email;
     private String name;
@@ -61,6 +63,24 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    /**
+     *
+     * @param other
+     * @return
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        Person person = (Person) other;
+
+        return id == person.id;
+    }
+
+
 
     /**
      *

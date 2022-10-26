@@ -1,12 +1,17 @@
-import java.util.ArrayList;
-import java.util.List;
+package assignment5;
+
+import assignment5.gui.MainMenu;
 
 public class Main {
     public static void main(String[] args) {
 
+        new MainMenu().run();
+
+
+        /*
         List<Person> persons = new ArrayList<>();
 
-        // Create Person objects (from Person class blueprint)
+        // Create assignment5.be.Person objects (from assignment5.be.Person class blueprint)
         Person p1 = new Person(100,"Hans Nielsen");
         p1.setEmail("hnk@easv.dk");
 
@@ -42,5 +47,6 @@ public class Main {
         for (Person p: persons) {
             System.out.println(p);
         }
+        */
     }
 }
