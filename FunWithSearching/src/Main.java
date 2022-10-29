@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
-    private static int[] numbers = new int[10_000];
+    private static int[] numbers = new int[1_000_000];
     private static int bCount;
     private static int lCount;
 

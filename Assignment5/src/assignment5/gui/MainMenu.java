@@ -1,15 +1,12 @@
 package assignment5.gui;
 
-/**
- *
- * @author smsj
- */
 public class MainMenu extends Menu
 {
 
     public MainMenu()
     {
-        super("Main menu", "Menu Item #1", "Menu Item #2", "Menu Item #3");
+        super("Main menu",
+              "Menu Item #1", "Menu Item #2", "Menu Item #3");
     }
 
     @Override

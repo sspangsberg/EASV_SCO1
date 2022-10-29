@@ -16,6 +16,12 @@ public abstract class Person {
         this.name = name;
     }
 
+
+    public Person(int id) {
+        this.id = id;
+        this.name = "Default";
+    }
+
     /**
      *
      * @return

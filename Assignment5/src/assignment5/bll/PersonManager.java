@@ -7,6 +7,7 @@ import assignment5.be.Teacher;
 
 // Java imports
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class PersonManager

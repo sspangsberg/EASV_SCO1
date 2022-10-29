@@ -1,11 +1,17 @@
 package assignment5;
 
+import assignment5.be.Person;
+import assignment5.be.Student;
 import assignment5.gui.MainMenu;
+
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
 
-        new MainMenu().run();
+       new MainMenu().run();
+
+        //Student s1 = new Student(0,"", "");
 
 
         /*
