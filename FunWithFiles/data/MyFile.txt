@@ -1,6 +1,8 @@
 This is the wonderful world of programming 1
 Numerous languages... 2
+Cobol
 Java 3
+JavaScript
 JavaScript
 C# 4
 Python

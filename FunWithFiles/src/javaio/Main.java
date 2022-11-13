@@ -1,50 +1,47 @@
 package javaio;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
-@SuppressWarnings("ALL")
+//@SuppressWarnings("ALL")
 public class Main {
 
-    private static final String filePath = "/Users/user/Work/Development/EASV_SCO1/FunWithFiles/Resources/MyFile.txt";
+    private static final String filePath = "data/MyFile.txt";
 
     public static void main(String[] args) {
 
         printFileContents();
 
-        addTextAtLine("JavaScript", 3);
+        searchForMovie("Java");
 
-        printFileContents();
+        addTextAtLine("Cobol", 3);
+
+        //printFileContents();
     }
 
     private static void addTextAtLine(String text, int lineNumber) {
-        FileReader fr = null;
-
-        try {
+        try (FileReader fr = new FileReader(filePath);
+             BufferedReader br = new BufferedReader(fr))
+        {
             String fileInput = "";
-            fr = new FileReader(filePath);
-            Scanner scanner = new Scanner(fr);
             int counter = 1;
-            while (scanner.hasNext()) {
-                fileInput += scanner.nextLine() + "\r\n";
+
+            String line;
+            while ((line = br.readLine()) != null) {
                 if (counter == lineNumber)
                     fileInput += text + "\r\n";
 
+                fileInput += line + "\r\n";
                 counter++;
+
+                System.out.println(line);
             }
 
-            fr.close();
-            FileWriter fw = new FileWriter(filePath);
-            fw.append(fileInput);
-            fw.close();
+            try (FileWriter fw = new FileWriter(filePath);
+                 BufferedWriter bw = new BufferedWriter(fw)) {
 
-
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
+                fw.append(fileInput);
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -56,19 +53,48 @@ public class Main {
     private static void printFileContents() {
         System.out.println("--------------------------------");
 
-        try {
-            FileReader fr = new FileReader(filePath);
+        try (FileReader fr = new FileReader(filePath);
+             BufferedReader br = new BufferedReader(fr))
+        {
+            /*
+
             Scanner scanner = new Scanner(fr);
             while (scanner.hasNext()) {
                 System.out.println(scanner.nextLine());
             }
-            fr.close();
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
+            */
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void searchForMovie(String wanted) {
+        System.out.println("--------------------------------");
+
+        try (FileReader fr = new FileReader(filePath);
+             BufferedReader br = new BufferedReader(fr))
+        {
+            int counter = 0;
+
+            String line;
+            while ((line = br.readLine()) != null) {
+
+                if (line.trim().contains(wanted)) {
+                    System.out.println("Found " + line + " at line " + counter);
+                    break;
+                }
+                counter++;
+            }
+
+        }
+        catch (Exception e) {
+            System.out.println("The file was not found");
         }
     }
 }
