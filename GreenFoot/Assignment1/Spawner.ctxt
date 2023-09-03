@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Spawner
+comment0.text=\n\ Spawner\ -\ a\ class\ for\ representing\ leafs.\n\n\ @author\ Michael\ Kolling\n\ @version\ 1.0.1\n
+comment1.params=
+comment1.target=Spawner()
+comment2.params=
+comment2.target=void\ act()
+numComments=3

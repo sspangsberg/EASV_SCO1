@@ -1,49 +1,94 @@
 package javaio;
 
 import java.io.*;
-import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+import static java.nio.file.StandardOpenOption.*;
 
 //@SuppressWarnings("ALL")
 public class Main {
 
-    private static final String filePath = "data/MyFile.txt";
+    private static final String filePathString = "data/MyFile.ser";
+    private static Path filePath = Path.of(filePathString);
 
     public static void main(String[] args) {
 
-        printFileContents();
+        /*
+        Person p1 = new Person(2, "Bill Gates");
+        Person p2 = new Person(1,"Steve Jobs");
+        Person p3 = new Person(3, "Larry Elison");
 
-        searchForMovie("Java");
+        List<Person> persons = new ArrayList<>();
+        persons.add(p1);
+        persons.add(p2);
+        persons.add(p3);
+*/
 
-        addTextAtLine("Cobol", 3);
+        List<Person> personsFromFile = loadPersons();
+        System.out.println(personsFromFile);
+
+        //savePersons(persons);
+
+
+        //printFileContents();
+
+        //searchForMovie("The Hunters");
+
+        //addTextAtLine("Fortran", 5);
 
         //printFileContents();
     }
 
-    private static void addTextAtLine(String text, int lineNumber) {
-        try (FileReader fr = new FileReader(filePath);
-             BufferedReader br = new BufferedReader(fr))
-        {
-            String fileInput = "";
-            int counter = 1;
+    private static List<Person> loadPersons() {
 
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (counter == lineNumber)
-                    fileInput += text + "\r\n";
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePathString));
+            return (List<Person>) ois.readObject();
 
-                fileInput += line + "\r\n";
-                counter++;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
 
-                System.out.println(line);
-            }
-
-            try (FileWriter fw = new FileWriter(filePath);
-                 BufferedWriter bw = new BufferedWriter(fw)) {
-
-                fw.append(fileInput);
-            }
         }
-        catch (IOException e) {
+
+        return null;
+    }
+
+    private static void savePersons(List<Person> persons) {
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(filePathString));
+            oos.writeObject(persons);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private static void addTextAtLine(String text, int lineNumber) {
+
+        try {
+            // Read the old file first
+            List<String> allLines = Files.readAllLines(filePath);
+            allLines.add(lineNumber, text);
+
+            // Create new temp file
+            Path tempPathFile = Path.of(filePathString+ "_TEMP");
+            Files.createFile(tempPathFile);
+
+            // Add all the lines
+            for (String line: allLines)
+                Files.write(tempPathFile, (line + "\r\n").getBytes(),APPEND);
+
+            // Overwrite the old file with temp file
+            Files.copy(tempPathFile, filePath, REPLACE_EXISTING);
+            Files.deleteIfExists(tempPathFile);
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -53,23 +98,14 @@ public class Main {
     private static void printFileContents() {
         System.out.println("--------------------------------");
 
-        try (FileReader fr = new FileReader(filePath);
-             BufferedReader br = new BufferedReader(fr))
-        {
-            /*
+        try {
+            // Lambda expression
+            //Files.lines(Path.of(filePath)).forEach(line -> System.out.println(line));
 
-            Scanner scanner = new Scanner(fr);
-            while (scanner.hasNext()) {
-                System.out.println(scanner.nextLine());
-            }
-            */
+            // readString nio static method call
+            System.out.println(Files.readString(filePath));
 
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -77,24 +113,17 @@ public class Main {
     private static void searchForMovie(String wanted) {
         System.out.println("--------------------------------");
 
-        try (FileReader fr = new FileReader(filePath);
-             BufferedReader br = new BufferedReader(fr))
-        {
-            int counter = 0;
+        try {
+            List<String> allLines = Files.readAllLines(filePath);
 
-            String line;
-            while ((line = br.readLine()) != null) {
-
-                if (line.trim().contains(wanted)) {
-                    System.out.println("Found " + line + " at line " + counter);
+            for (int i = 0; i < allLines.size(); i++) {
+                if (allLines.get(i).trim().contains(wanted)) {
+                    System.out.println("Found " + wanted + " at line " + i);
                     break;
                 }
-                counter++;
             }
-
-        }
-        catch (Exception e) {
-            System.out.println("The file was not found");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -3,6 +3,7 @@ Numerous languages... 2
 Cobol
 Java 3
 JavaScript
-JavaScript
+Fortran
+Fortran
 C# 4
 Python
