@@ -2,6 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 
 import java.util.List;
 import java.util.ArrayList;
+
+// importer Random klasse fra Java
 import java.util.Random;
 
 /**
@@ -33,7 +35,7 @@ public class Wombat extends Actor
      * Do whatever the wombat likes to to just now.
      */
     public void act()
-    {   
+    {           
         if(foundLeaf()) {
             eatLeaf();            
         }
@@ -41,7 +43,9 @@ public class Wombat extends Actor
             eatStone();
         }
         else if(canMove()) {
-            move();  
+            move(); 
+            
+            // call method
             handleSteps();  
         }
         else {
@@ -50,9 +54,11 @@ public class Wombat extends Actor
     }
 
     public void handleSteps() { // Exercise 2+3
+        // Max 10 linier
         
         if (stepsTaken < 50) {
-            stepsTaken = stepsTaken + 1;
+            //stepsTaken = stepsTaken + 1;
+            stepsTaken++; // shorthand notation
         }
         else {
             getWorld().removeObject(this); // ask WombatWorld to remove this Wombat            
@@ -128,13 +134,23 @@ public class Wombat extends Actor
      */
     public void move()
     {
-        if (!canMove()) {
+        if (!canMove()) 
+        {
             return;
         }
+            
+    
         
         // Exercise B
-        Random rnd = new Random();
-        int randomDirection = rnd.nextInt(4);
+        // Java
+        //Random rnd = new Random(); // Random objekt
+        // Object method         ObjectName.methodName()
+        //int randomDirection = rnd.nextInt(4); // giv et tilfældigt til mellem 0 og 3
+        
+        // Greenfoot random
+        // Static method      ClassName.methodName()
+        int randomDirection = Greenfoot.getRandomNumber(4);
+        
         setDirection(randomDirection);
         
         switch(direction) {

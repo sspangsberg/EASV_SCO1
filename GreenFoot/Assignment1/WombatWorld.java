@@ -19,14 +19,14 @@ public class WombatWorld extends World
         super(8, 8, 60);        
         setBackground("cell.jpg");
         setPaintOrder(Wombat.class, Leaf.class);
-        //populate();
+        populate();
     }
 
     
     public void act() {
         
-        randomLeaves(1);
-        randomStones(1);
+        //randomLeaves(1);
+        //randomStones(1);
     }
     
     
