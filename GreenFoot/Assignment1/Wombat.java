@@ -23,19 +23,53 @@ public class Wombat extends Actor
     private int direction;
     private int leavesEaten;
     private int stepsTaken;
+    private int stepsUntilNewWombat;
+    private boolean foundOtherWombat;
+    
+    private boolean isChild = false;
+    private final int TIME_TO_GROW_UP = 30;
+    private int grow = 0;
 
-    public Wombat()
+    public Wombat(boolean isChildParam)
     {
         setDirection(EAST);
         leavesEaten = 0;
         stepsTaken = 0; // Exercise 2
+        
+        stepsUntilNewWombat = 40;
+        foundOtherWombat = false;
+        
+        this.isChild = isChildParam;
+        
+        if (isChild)
+        {
+            GreenfootImage img = this.getImage();
+            img.scale(img.getWidth()/2, img.getHeight()/2);
+            setImage(img);
+        }
     }
 
     /**
      * Do whatever the wombat likes to to just now.
      */
     public void act()
-    {           
+    {   
+        if (isChild)
+            grow++;
+        
+        if (foundWombat() && stepsUntilNewWombat == 0) {
+            getWorld().addObject(new Wombat(true), this.getX(), this.getY());
+            foundOtherWombat = false;
+            stepsUntilNewWombat = 40;
+        }
+        
+        if (grow == TIME_TO_GROW_UP) {
+            GreenfootImage img = this.getImage();
+            img.scale(img.getWidth()*2, img.getHeight()*2);
+            setImage(img);
+        }
+        
+        
         if(foundLeaf()) {
             eatLeaf();            
         }
@@ -47,6 +81,9 @@ public class Wombat extends Actor
             
             // call method
             handleSteps();  
+            
+            if (foundOtherWombat && stepsUntilNewWombat > 0)
+                stepsUntilNewWombat--;
         }
         else {
             turnLeft();
@@ -64,6 +101,18 @@ public class Wombat extends Actor
             getWorld().removeObject(this); // ask WombatWorld to remove this Wombat            
         }
     }
+    
+    public boolean foundWombat() {
+        Actor wombat = getOneObjectAtOffset(0, 0, Wombat.class);
+        if(wombat != null) {
+            foundOtherWombat = true;
+            return true;
+        }
+        else
+            return false;
+    }
+    
+    
     
     /**
      * Check whether there is a leaf in the same cell as we are.

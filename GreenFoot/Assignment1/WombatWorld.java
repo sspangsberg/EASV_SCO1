@@ -25,8 +25,10 @@ public class WombatWorld extends World
     
     public void act() {
         
-        //randomLeaves(1);
-        //randomStones(1);
+        if (Greenfoot.getRandomNumber(60) < 5) {
+            randomLeaves(4);
+            randomStones(1);    
+        }
     }
     
     
@@ -37,8 +39,8 @@ public class WombatWorld extends World
     public void populate()
     {        
         randomWombats(2);
-        randomLeaves(15);
-        randomStones(2);
+        randomLeaves(10);
+        randomStones(1);
     }
     
     
@@ -49,7 +51,7 @@ public class WombatWorld extends World
     public void randomWombats(int howMany)
     {
         for(int i=0; i<howMany; i++) {
-            Wombat newWombat = new Wombat();
+            Wombat newWombat = new Wombat(false);
             int x = Greenfoot.getRandomNumber(getWidth());
             int y = Greenfoot.getRandomNumber(getHeight());
             
