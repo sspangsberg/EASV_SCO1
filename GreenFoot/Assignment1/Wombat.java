@@ -15,23 +15,29 @@ import java.util.Random;
  */
 public class Wombat extends Actor
 {
+     
+    // klasse variable (static)
     private static final int EAST = 0;
     private static final int WEST = 1;
     private static final int NORTH = 2;
     private static final int SOUTH = 3;
 
+    // instans variable
     private int direction;
     private int leavesEaten;
     private int stepsTaken;
     private int stepsUntilNewWombat;
     private boolean foundOtherWombat;
-    
+    private int number1 = 0;
+
     private boolean isChild = false;
     private final int TIME_TO_GROW_UP = 30;
     private int grow = 0;
+    private String name = "Mr Burns.";
 
     public Wombat(boolean isChildParam)
     {
+        
         setDirection(EAST);
         leavesEaten = 0;
         stepsTaken = 0; // Exercise 2
@@ -43,12 +49,15 @@ public class Wombat extends Actor
         
         if (isChild)
         {
+            // lokal variabel
             GreenfootImage img = this.getImage();
             img.scale(img.getWidth()/2, img.getHeight()/2);
             setImage(img);
         }
     }
 
+    
+    
     /**
      * Do whatever the wombat likes to to just now.
      */
@@ -61,6 +70,8 @@ public class Wombat extends Actor
             getWorld().addObject(new Wombat(true), this.getX(), this.getY());
             foundOtherWombat = false;
             stepsUntilNewWombat = 40;
+            
+            
         }
         
         if (grow == TIME_TO_GROW_UP) {
@@ -157,8 +168,12 @@ public class Wombat extends Actor
             // adjust steps (Exercise 4)
             if (stepsTaken <= 25)
                 stepsTaken = 0;
-            else
-                stepsTaken = stepsTaken - 25;
+            else {
+                // decrease steps by 25, so we can walk longer
+                stepsTaken = stepsTaken - 25; 
+            }
+            
+                
         }
     }
     
