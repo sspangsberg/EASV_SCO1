@@ -10,21 +10,54 @@ import java.util.*;
  */
 public class Wizard extends Actor
 {
-    private static final int MAX_COOLDOWN = 50;
+    private static final int MAX_COOLDOWN = 0;
     private int cooldown = MAX_COOLDOWN;
+    private GreenfootSound shootEffect = new GreenfootSound("EnergyGun.wav");
     
     public void act() {
-        cooldown--;  
-       
+        cooldown--;
+        
+        // if vs. else-if > try it out...
+        if (Greenfoot.isKeyDown("left")) {
+            
+            move(-3);
+        }
+        if (Greenfoot.isKeyDown("right")) {
+            
+            move(3);
+        }
+        if (Greenfoot.isKeyDown("up")) {
+            setLocation(getX(), getY() - 3);
+            
+        }
+        if (Greenfoot.isKeyDown("down")) {
+            setLocation(getX(), getY() + 3);
+            
+        }
+        
+        if (Greenfoot.isKeyDown("space")) {
+            shoot();
+        }
+        
+        
+
+    }
+    
+    private void shoot() {
+        
         Dragon d = getNearestDragon();
         
         if (d != null && cooldown <= 0) {
             Fireball f = new Fireball(d);
         
+            
             getWorld().addObject(f,this.getX(), this.getY());
             cooldown = MAX_COOLDOWN;
-        }    
-    }   
+            
+            shootEffect.play();
+        }
+    }
+    
     
     
     private Dragon getNearestDragon() {

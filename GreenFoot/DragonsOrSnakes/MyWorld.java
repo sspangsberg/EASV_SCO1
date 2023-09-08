@@ -17,7 +17,6 @@ public class MyWorld extends World
     // 6) spawn new dragons randomly
     // 7) Scoreboard with amount of dragon kills
     // 8) wizard has health and can die...???
-    // 9) find way more awesome images for the dragon + wizard
     
     /**
      * Constructor for objects of class MyWorld.
@@ -29,6 +28,8 @@ public class MyWorld extends World
         super(600, 400, 1); 
         
         addObject(new Wizard(), 100, 200);
+        // 
+        
         
         for (int i = 0; i < 5; i++) {
             int newX = Greenfoot.getRandomNumber(250)+300;
