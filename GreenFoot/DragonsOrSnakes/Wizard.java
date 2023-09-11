@@ -39,6 +39,12 @@ public class Wizard extends Actor
             shoot();
         }
         
+        if (isTouching(Dragon.class)) {
+            MyWorld theWorld = (MyWorld) getWorld();
+            
+            theWorld.decreaseHP();
+            
+        }
         
 
     }
@@ -55,6 +61,7 @@ public class Wizard extends Actor
             cooldown = MAX_COOLDOWN;
             
             shootEffect.play();
+        
         }
     }
     

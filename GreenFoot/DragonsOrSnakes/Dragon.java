@@ -8,6 +8,8 @@ import greenfoot.*;
  */
 public class Dragon extends Actor
 { 
+    private int hp;
+    
     public void act() {
         Wizard w = (Wizard) getWorld().getObjects(Wizard.class).get(0);
         turnTowards(w.getX(), w.getY());

@@ -35,7 +35,11 @@ public class Fireball extends Actor
             // World
             MyWorld theWorld = (MyWorld) getWorld();
             
+            
             theWorld.removeObject(d);
+                        
+            // update scoreboard
+            if (theWorld != null) theWorld.increaseScore();
         }
         
         // Single line comment           
