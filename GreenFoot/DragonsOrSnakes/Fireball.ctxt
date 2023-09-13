@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Fireball
 comment0.text=\n\ Write\ a\ description\ of\ class\ Fireball\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=dragon
+comment1.params=dragonParam
 comment1.target=Fireball(Dragon)
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Fireball\n
 comment2.params=

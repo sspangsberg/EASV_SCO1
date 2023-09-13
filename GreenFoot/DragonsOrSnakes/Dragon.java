@@ -8,11 +8,20 @@ import greenfoot.*;
  */
 public class Dragon extends Actor
 { 
-    private int hp;
+    private int speed;
+    private MyWorld gameManager = (MyWorld) getWorld();
+  
+    public Dragon(int speedParam) {
+        this.speed = speedParam;
+    }
     
     public void act() {
-        Wizard w = (Wizard) getWorld().getObjects(Wizard.class).get(0);
-        turnTowards(w.getX(), w.getY());
-        move(1);
+       
+        Wizard w = gameManager.getWizard();
+        
+        if (w.getHealth() > 0 && gameManager.isGameRunning()) {
+            turnTowards(w.getX(), w.getY());
+            move(speed);            
+        }
     }
 }
