@@ -7,16 +7,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class MyWorld extends World
-{
+{    
     // Exercises:
-    // 1) write code and make it work without errors and exceptions
-    // 2) understand code (including experiment with different loops)
-    // 3) wizard movement + shooting using the keyboard
-    // 4) play sound when wizard fires off fireball
-    // 5) play sound when dragon dies
-    // 6) spawn new dragons randomly
+    // 1) Write code and make it work without errors and exceptions
+    // 2) Understand code (including experiment with different loops)
+    // 3) Wizard movement + shooting using the keyboard
+    // 4) Play sound when wizard fires off fireball
+    // 5) Play sound when dragon dies
+    // 6) Spawn new dragons randomly
     // 7) Scoreboard with amount of dragon kills
-    // 8) wizard has health and can die...???
+    // 8) Wizard has health and can die...
+    
+    // 9) Add a win condition (fx. 10 dragon kills wins) 
+    //10) Extend your dragon class so its constructor accepts a speed parameter etc.
+    //11) Extend the game so a built-in timer increases the Dragon spawn-rate
+    //12) Add a dragon boss class with a) increased speed and b) is able to kill the wizard by thouching it
+    //Hint: use inheritance and super
     
     private static int score, hp;
     
