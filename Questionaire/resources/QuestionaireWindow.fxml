@@ -78,13 +78,16 @@
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q2" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Neutral">
+                  <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q2">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Agree">
+                  <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q2">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -204,6 +207,11 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </HBox>
+            <Label text="I think Java is fun" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0">

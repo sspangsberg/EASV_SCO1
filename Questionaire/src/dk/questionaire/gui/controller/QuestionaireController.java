@@ -2,32 +2,66 @@ package dk.questionaire.gui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 public class QuestionaireController {
 
     private int score = 0;
-    MainWindowController mainController;
+    private MainWindowController mainController;
 
     @FXML
     private Label lblName;
 
     @FXML
+    private ToggleGroup q1,q2;
+
+
+    /**
+     * Event handler that calculates the score based on an array of ToggleGroups
+     * @param actionEvent
+     */
+    @FXML
     private void calculateScore(ActionEvent actionEvent) {
         // calculate the score
-        score = 42; //fixme
+        // info from the radio buttons
+        ToggleGroup[] questions = {q1,q2};
+
+        for (ToggleGroup question : questions) {
+            RadioButton selectedRadioButton = (RadioButton) question.getSelectedToggle();
+            String toggleGroupValue = selectedRadioButton.getText();
+
+            if (toggleGroupValue.equals("Disagree"))
+                score--;
+            else if (toggleGroupValue.equals("Agree"))
+                score++;
+        }
+
+        mainController.setScore(score);
     }
 
+    /**
+     * Closes the window
+     * @param actionEvent
+     */
     @FXML
     private void close(ActionEvent actionEvent) {
-        // transfer score to mainWindow
-       Stage parent = (Stage) lblName.getScene().getWindow();
+       //Stage parent = (Stage) lblName.getScene().getWindow();
 
-       mainController.setScore(score);
-       parent.close();
+       if (actionEvent.getSource() instanceof Node) {
+           Node n = (Node) actionEvent.getSource();
+           Stage parent = (Stage) n.getScene().getWindow();
+           parent.close();
+       }
     }
 
+    /**
+     * Sets the parent controller, so we have a handle
+     * @param controller
+     */
     public void setParentController(MainWindowController controller) {
         mainController = controller;
     }
