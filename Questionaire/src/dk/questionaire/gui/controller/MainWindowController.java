@@ -1,5 +1,6 @@
 package dk.questionaire.gui.controller;
 
+import dk.questionaire.gui.controller.QuestionaireController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -30,6 +30,7 @@ public class QuestionaireController {
         // info from the radio buttons
         ToggleGroup[] questions = {q1,q2};
 
+        // for (Classname var_name: array)
         for (ToggleGroup question : questions) {
             RadioButton selectedRadioButton = (RadioButton) question.getSelectedToggle();
             String toggleGroupValue = selectedRadioButton.getText();
@@ -40,6 +41,7 @@ public class QuestionaireController {
                 score++;
         }
 
+        // send score to mainwindowcontroller
         mainController.setScore(score);
     }
 
