@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Game {
+public class Game implements IGame {
     private String title;
     private String type;
 
@@ -57,5 +57,15 @@ public class Game {
                 "title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 '}';
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public int getScore() {
+        return 0;
     }
 }

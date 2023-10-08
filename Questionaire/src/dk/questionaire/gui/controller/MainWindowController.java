@@ -1,6 +1,5 @@
 package dk.questionaire.gui.controller;
 
-import dk.questionaire.gui.controller.QuestionaireController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +27,7 @@ public class MainWindowController {
      */
     @FXML
     private void fillQuestionaire(ActionEvent actionEvent) throws IOException {
+
         // Open questionaire window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/QuestionaireWindow.fxml"));
         Parent scene = loader.load();
