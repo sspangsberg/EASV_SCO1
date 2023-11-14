@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import static java.nio.file.StandardOpenOption.*;
@@ -12,9 +13,13 @@ import static java.nio.file.StandardOpenOption.*;
 //@SuppressWarnings("ALL")
 public class Main {
 
-    private static final String filePathString = "data/MyFile.ser";
+    private static final String filePathString = "data/MyFile.txt";
     private static Path filePath = Path.of(filePathString);
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         /*
@@ -28,8 +33,8 @@ public class Main {
         persons.add(p3);
 */
 
-        List<Person> personsFromFile = loadPersons();
-        System.out.println(personsFromFile);
+        //List<Person> personsFromFile = loadPersons();
+        //System.out.println(personsFromFile);
 
         //savePersons(persons);
 
@@ -40,9 +45,16 @@ public class Main {
 
         //addTextAtLine("Fortran", 5);
 
-        //printFileContents();
+        printFileContents();
+        //writeToFile("New Programming Language");
+        addTextAtLine("Inserted Line",3);
+        printFileContents();
     }
 
+    /**
+     *
+     * @return
+     */
     private static List<Person> loadPersons() {
 
         try {
@@ -57,6 +69,10 @@ public class Main {
         return null;
     }
 
+    /**
+     *
+     * @param persons
+     */
     private static void savePersons(List<Person> persons) {
         ObjectOutputStream oos = null;
         try {
@@ -66,9 +82,13 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
+    /**
+     *
+     * @param text
+     * @param lineNumber
+     */
     private static void addTextAtLine(String text, int lineNumber) {
 
         try {
@@ -80,7 +100,7 @@ public class Main {
             Path tempPathFile = Path.of(filePathString+ "_TEMP");
             Files.createFile(tempPathFile);
 
-            // Add all the lines
+            // For all lines...
             for (String line: allLines)
                 Files.write(tempPathFile, (line + "\r\n").getBytes(),APPEND);
 
@@ -93,23 +113,69 @@ public class Main {
         }
     }
 
-
-
+    /**
+     *
+     */
     private static void printFileContents() {
         System.out.println("--------------------------------");
 
-        try {
-            // Lambda expression
-            //Files.lines(Path.of(filePath)).forEach(line -> System.out.println(line));
+        // try-with-resources
+        try (FileReader fr = new FileReader(filePathString);
+             BufferedReader br = new BufferedReader(fr)) {
+
+            // Standard IO Scanner
+            /*
+            Scanner sc = new Scanner(fr); // not thread-safe
+            while(sc.hasNext()) {
+                System.out.println(sc.nextLine());
+            }
+            */
+
+            /*
+            // Standard IO Buffered Reader
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            */
+
+            // Java NIO lambda
+            Files.lines(filePath).forEach(line -> System.out.println(line));
 
             // readString nio static method call
-            System.out.println(Files.readString(filePath));
+            //System.out.println(Files.readString(filePath));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     *
+     * @param newLineContent
+     */
+    private static void writeToFile(String newLineContent) {
+        try {
+            /*
+            // Standard IO
+            FileWriter fileWriter = new FileWriter(filePathString, true);
+            fileWriter.append(newLineContent + "\r\n");
+            fileWriter.close();
+            */
+
+            // Java NIO
+            Files.write(filePath, newLineContent.getBytes(), APPEND);
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     *
+     * @param wanted
+     */
     private static void searchForMovie(String wanted) {
         System.out.println("--------------------------------");
 
