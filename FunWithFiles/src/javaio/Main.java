@@ -16,40 +16,48 @@ public class Main {
     private static final String filePathString = "data/MyFile.txt";
     private static Path filePath = Path.of(filePathString);
 
+    private static List<Person> persons = new ArrayList<>();
+
     /**
      *
      * @param args
      */
     public static void main(String[] args) {
 
-        /*
+
+
+        // Object serialization stuff...
+        //setupDataForObjSerialization();
+
+        //List<Person> personsFromFile = loadPersons();
+        //System.out.println(personsFromFile);
+        //savePersons(persons);
+
+
+
+        //printFileContents();
+        //searchForMovie("The Hunters");
+        //addTextAtLine("Fortran", 5);
+
+        //printFileContents();
+        //writeToFile("New Programming Language");
+        //addTextAtLine("Inserted Line",3);
+        printFileContents();
+    }
+
+    /**
+     *
+     */
+    private static void setupDataForObjSerialization() {
         Person p1 = new Person(2, "Bill Gates");
         Person p2 = new Person(1,"Steve Jobs");
         Person p3 = new Person(3, "Larry Elison");
 
-        List<Person> persons = new ArrayList<>();
         persons.add(p1);
         persons.add(p2);
         persons.add(p3);
-*/
-
-        //List<Person> personsFromFile = loadPersons();
-        //System.out.println(personsFromFile);
-
-        //savePersons(persons);
-
-
-        //printFileContents();
-
-        //searchForMovie("The Hunters");
-
-        //addTextAtLine("Fortran", 5);
-
-        printFileContents();
-        //writeToFile("New Programming Language");
-        addTextAtLine("Inserted Line",3);
-        printFileContents();
     }
+
 
     /**
      *
@@ -57,13 +65,15 @@ public class Main {
      */
     private static List<Person> loadPersons() {
 
-        try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePathString));
+        // try-with-resources to enable auto-closable
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePathString));)
+        {
             return (List<Person>) ois.readObject();
-
-        } catch (IOException | ClassNotFoundException e) {
+        }
+        // catch multiple exceptions in one catch clause (with single pipe)
+        catch (IOException | ClassNotFoundException e)
+        {
             e.printStackTrace();
-
         }
 
         return null;
@@ -74,13 +84,15 @@ public class Main {
      * @param persons
      */
     private static void savePersons(List<Person> persons) {
-        ObjectOutputStream oos = null;
-        try {
-            oos = new ObjectOutputStream(new FileOutputStream(filePathString));
-            oos.writeObject(persons);
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        // try-with-resources to enable auto-closable
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePathString)))
+        {
+            oos.writeObject(persons);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
         }
     }
 

@@ -1,11 +1,6 @@
-This is the wonderful world of programming 1
-Numerous languages... 2
-Cobol
-Inserted Line
-Inserted Line
-Java 3
+C#
+Java
 JavaScript
-Fortran
-C# 4
 Python
-New Programming Language
+Cobol
+Basic
