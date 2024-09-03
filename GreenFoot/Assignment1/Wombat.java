@@ -15,69 +15,46 @@ import java.util.Random;
  */
 public class Wombat extends Actor
 {
-     
-    // klasse variable (static)
     private static final int EAST = 0;
     private static final int WEST = 1;
     private static final int NORTH = 2;
     private static final int SOUTH = 3;
 
-    // instans variable
+    private int stepsTaken = 0;
+    private int leavesEaten = 0;
     private int direction;
-    private int leavesEaten;
-    private int stepsTaken;
-    private int stepsUntilNewWombat;
-    private boolean foundOtherWombat;
-    private int number1 = 0;
-
-    private boolean isChild = false;
-    private final int TIME_TO_GROW_UP = 30;
-    private int grow = 0;
-    private String name = "Mr Burns.";
+    private int pregnancy = -1; // Exercise D
+    private boolean isChild = false; // Exercise D
+    private int age = 0; // Exercise D
 
     public Wombat(boolean isChildParam)
     {
-        
         setDirection(EAST);
         leavesEaten = 0;
-        stepsTaken = 0; // Exercise 2
+        stepsTaken = 0; // Exercise 2 // vi ændrer værdien
+        this.isChild = isChildParam;   // Exercise D
         
-        stepsUntilNewWombat = 40;
-        foundOtherWombat = false;
-        
-        this.isChild = isChildParam;
-        
-        if (isChild)
-        {
-            // lokal variabel
-            GreenfootImage img = this.getImage();
-            img.scale(img.getWidth()/2, img.getHeight()/2);
-            setImage(img);
+        // Exercise D
+        if (isChild) {
+            GreenfootImage image = getImage();
+            image.scale(25, 25);
+            setImage(image);
         }
     }
 
-    
     
     /**
      * Do whatever the wombat likes to to just now.
      */
     public void act()
     {   
+        // Exercise D
         if (isChild)
-            grow++;
-        
-        if (foundWombat() && stepsUntilNewWombat == 0) {
-            getWorld().addObject(new Wombat(true), this.getX(), this.getY());
-            foundOtherWombat = false;
-            stepsUntilNewWombat = 40;
+            age++;
             
-            
-        }
-        
-        if (grow == TIME_TO_GROW_UP) {
-            GreenfootImage img = this.getImage();
-            img.scale(img.getWidth()*2, img.getHeight()*2);
-            setImage(img);
+        if (age == 10) {
+            isChild = false;
+            setImage(new GreenfootImage("wombat.png"));
         }
         
         
@@ -91,39 +68,34 @@ public class Wombat extends Actor
             move(); 
             
             // call method
-            handleSteps();  
-            
-            if (foundOtherWombat && stepsUntilNewWombat > 0)
-                stepsUntilNewWombat--;
+            handleSteps(); 
         }
         else {
             turnLeft();
-        }        
+            
+        }
+        
     }
 
-    public void handleSteps() { // Exercise 2+3
-        // Max 10 linier
-        
-        if (stepsTaken < 50) {
-            //stepsTaken = stepsTaken + 1;
+    private void handleSteps() { // Exercise 2+3
+         if (stepsTaken < 50) {
+            
+             // Exercise D
+            if (!isChild && pregnancy != -1 && pregnancy < 9)
+                pregnancy++;
+            else if (pregnancy == 9) {
+                Wombat child = new Wombat(true);
+                getWorld().addObject(child, getX(), getY());
+                pregnancy = -1;
+            }
+            
             stepsTaken++; // shorthand notation
         }
         else {
-            getWorld().removeObject(this); // ask WombatWorld to remove this Wombat            
+            //if (this != null && getWorld() != null)
+                getWorld().removeObject(this); // ask WombatWorld to remove this Wombat            
         }
     }
-    
-    public boolean foundWombat() {
-        Actor wombat = getOneObjectAtOffset(0, 0, Wombat.class);
-        if(wombat != null) {
-            foundOtherWombat = true;
-            return true;
-        }
-        else
-            return false;
-    }
-    
-    
     
     /**
      * Check whether there is a leaf in the same cell as we are.
@@ -154,12 +126,32 @@ public class Wombat extends Actor
         }
     }
     
+    
+    /**
+     * Check whether there is a leaf in the same cell as we are.
+     */
+    public boolean foundAnotherAdultWombat()
+    {
+        // Exercise D
+        Wombat wombat = (Wombat) getOneObjectAtOffset(0, 0, Wombat.class);
+        if(wombat != null && !wombat.isChild()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    
+    
     /**
      * Eat a leaf.
      */
     public void eatLeaf()
     {
         Actor leaf = getOneObjectAtOffset(0, 0, Leaf.class);
+        
+        
         if(leaf != null) {
             // eat the leaf...
             getWorld().removeObject(leaf);
@@ -168,12 +160,8 @@ public class Wombat extends Actor
             // adjust steps (Exercise 4)
             if (stepsTaken <= 25)
                 stepsTaken = 0;
-            else {
-                // decrease steps by 25, so we can walk longer
-                stepsTaken = stepsTaken - 25; 
-            }
-            
-                
+            else
+                stepsTaken = stepsTaken - 25;
         }
     }
     
@@ -184,10 +172,12 @@ public class Wombat extends Actor
     public void eatStone()
     {
         Actor stone = getOneObjectAtOffset(0, 0, Stone.class);
-        if(stone != null) {
+        
+        if(stone != null) 
+        {
             // eat the stone...
             getWorld().removeObject(stone);
-            leavesEaten = leavesEaten - 3;
+            leavesEaten = leavesEaten - 5;
         }
     }
     
@@ -202,8 +192,6 @@ public class Wombat extends Actor
         {
             return;
         }
-            
-    
         
         // Exercise B
         // Java
@@ -232,7 +220,10 @@ public class Wombat extends Actor
                 break;
         }
         
-        
+        // Exercise D
+        if (foundAnotherAdultWombat()) {
+            pregnancy = 0;
+        }
         
     }
 
@@ -325,5 +316,10 @@ public class Wombat extends Actor
     public int getLeavesEaten()
     {
         return leavesEaten;
+    }
+    
+    // Exercise D
+    public boolean isChild() {
+        return isChild;
     }
 }

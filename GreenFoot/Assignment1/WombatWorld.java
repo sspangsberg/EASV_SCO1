@@ -10,6 +10,8 @@ import java.util.Random;
  */
 public class WombatWorld extends World
 {
+    private int ticks = 0;
+    
     /**
      * Create a new world with 8x8 cells and
      * with a cell size of 60x60 pixels
@@ -18,19 +20,19 @@ public class WombatWorld extends World
     {
         super(8, 8, 60);        
         setBackground("cell.jpg");
-        setPaintOrder(Wombat.class, Leaf.class);
+        setPaintOrder(Leaf.class, Wombat.class);
+        
         populate();
     }
 
     
     public void act() {
         
-        if (Greenfoot.getRandomNumber(60) < 5) {
-            randomLeaves(4);
-            randomStones(1);    
+        if (Greenfoot.getRandomNumber(80) == 1) { // Exercise C
+            randomLeaves(5);
+            randomStones(1);
         }
     }
-    
     
     
     /**
@@ -39,8 +41,8 @@ public class WombatWorld extends World
     public void populate()
     {        
         randomWombats(2);
-        randomLeaves(10);
-        randomStones(1);
+        randomLeaves(15);
+        randomStones(2);
     }
     
     
@@ -73,6 +75,8 @@ public class WombatWorld extends World
             addObject(leaf, x, y);
         }
     }
+    
+    
     
     
     /**
