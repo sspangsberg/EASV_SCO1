@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    private final int TIMER = 0; // instans variabel
+    private int timer = 0; // instans variabel
     
     
     /**
@@ -24,13 +24,22 @@ public class MyWorld extends World
         addObject(e, 100, 200);
         e.name = "Peter";
         // tælle variabel; betingelse / condition; justering af tællevariabel
-        for (int i = 0; i < 10; i++) // sålænge i er mindre end 5, fortsætter løkken
+        // i = 2
+        /*
+        for (int i = 0; i < 2; i++) // sålænge i er mindre end 5, fortsætter løkken
         {
             Fries f =  new Fries();
             addObject(f, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight())); 
         }
+        */
+       
         
         
+        
+        
+        // while // ofte
+        // do-while // sjældent
+        // foreach // meget ofte
         
         
     }
@@ -46,12 +55,6 @@ public class MyWorld extends World
             
             timer = 0; // reset timer
         }
-        
-        //int rndNumber = Greenfoot.getRandomNumber(25);
-        
-        //if (rndNumber == 5) {
-        //}
-        
     }
     
 }
