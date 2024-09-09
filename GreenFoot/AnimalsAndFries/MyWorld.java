@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    private int timer = 0; // instans variabel
-    
+    // instans variable
+    private int timer = 0;
+    private Elephant e = new Elephant(); 
     
     /**
      * Constructor for objects of class MyWorld.
@@ -19,42 +20,43 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+    
+        // tilføj vores elefant til verdenen
+        addObject(e, 100, 200); 
         
-        Elephant e = new Elephant();
-        addObject(e, 100, 200);
-        e.name = "Peter";
         // tælle variabel; betingelse / condition; justering af tællevariabel
-        // i = 2
-        /*
         for (int i = 0; i < 2; i++) // sålænge i er mindre end 5, fortsætter løkken
         {
-            Fries f =  new Fries();
+            // generér et tilfældigt nummer mellem 0-399
+            int fryCalories = Greenfoot.getRandomNumber(400);
+            Fries f =  new Fries(fryCalories);
+            
+            // Tilføj fritten til verdenen på tilfældig placering (x,y)
             addObject(f, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight())); 
         }
-        */
-       
-        
-        
-        
         
         // while // ofte
         // do-while // sjældent
         // foreach // meget ofte
         
-        
     }
     
     
     public void act() {
-        
         timer++;
         
         if (timer > 100) {
-            Fries f =  new Fries();
+            int fryCalories = Greenfoot.getRandomNumber(400);
+            Fries f =  new Fries(fryCalories); //
+           
             addObject(f, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
             
             timer = 0; // reset timer
         }
+        
+        // Print to the screen - concatenate String and calories
+        int totalCalsTemp = e.getTotalCalories();
+        showText("Total Calories: " + totalCalsTemp, 100, 30);
     }
     
 }

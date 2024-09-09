@@ -8,17 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Elephant extends Actor
 {
-    public String name = "Preben";
+    private int totalCalories; // heltals + instans variabel
     
-    //getter / setter
-    public String getName() {
-        return name;
+    // Getter
+    public int getTotalCalories() {
+        return totalCalories;
     }
-    
-    public void setName(String nameParam) {
-        this.name = nameParam;
-    }
-    
     
     /**
      * Act - do whatever the Elephant wants to do. This method is called whenever
@@ -26,40 +21,30 @@ public class Elephant extends Actor
      */
     public void act()
     {
+        // lokal variabel
         boolean keyDown = Greenfoot.isKeyDown("left");
-        
         if ( keyDown ) {
             move(-3);
         }
-        
         if ( Greenfoot.isKeyDown("right") ) {
             move(3);
         }
-        
         if ( Greenfoot.isKeyDown("up") ) {
             setLocation(getX(), getY() - 3);
         }
-        
-
         if ( Greenfoot.isKeyDown("down") ) {
             setLocation(getX(), getY() + 3);
         }
         
+        // Vi henter fritten
+        Fries fry = (Fries) getOneIntersectingObject(Fries.class); // type-casting
         
-        Actor fries = getOneIntersectingObject(Fries.class);
-        
-        
-        if (fries != null) {
-        
-            getWorld().removeObject(fries);
+        if (fry != null) {
+            // Objekter kommunikerer med hinanden
+            totalCalories = totalCalories + fry.getCalories();
             
-            
-            
+            getWorld().removeObject(fry);
         }
-        
-        
-        
-        // Add your action code here.
     }
 }
 

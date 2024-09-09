@@ -2,10 +2,8 @@
 comment0.target=Elephant
 comment0.text=\n\ Write\ a\ description\ of\ class\ Elephant\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=java.lang.String\ getName()
-comment2.params=nameParam
-comment2.target=void\ setName(java.lang.String)
-comment3.params=
-comment3.target=void\ act()
-comment3.text=\n\ Act\ -\ do\ whatever\ the\ Elephant\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=4
+comment1.target=int\ getTotalCalories()
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Elephant\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=3
