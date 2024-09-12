@@ -8,9 +8,32 @@ import greenfoot.*;
  */
 public class Dragon extends Actor
 { 
+    private int speed;
+    private MyWorld gameManager;
+    
+    /**
+     * Constructor
+     * 10) Extend your dragon class so its constructor accepts a speed parameter etc.
+     */
+    public Dragon(int speedParam) {
+        this.speed = speedParam;
+    }
+    
+    
+    /**
+     * Act method
+     */
     public void act() {
-        Wizard w = (Wizard) getWorld().getObjects(Wizard.class).get(0);
-        turnTowards(w.getX(), w.getY());
-        move(1);
+        
+        gameManager = (MyWorld) getWorld();
+        Wizard player = gameManager.getPlayer();
+        
+        if (gameManager != null && player != null &&  gameManager.gameIsRunning()) {
+            turnTowards(player.getX(), player.getY());
+            move(speed);
+        }
+        
+        //Wizard w = (Wizard) getWorld().getObjects(Wizard.class).get(0);
+        
     }
 }
