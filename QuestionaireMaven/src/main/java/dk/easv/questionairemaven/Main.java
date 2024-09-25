@@ -1,4 +1,4 @@
-package dk.questionaire;
+package dk.easv.questionairemaven;
 
 // Java imports
 import javafx.application.Application;
@@ -17,7 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage startStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MainWindow.fxml"));
         Parent root = loader.load();
         startStage.setScene(new Scene(root));
 

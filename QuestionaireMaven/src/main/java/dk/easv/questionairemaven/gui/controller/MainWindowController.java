@@ -1,4 +1,4 @@
-package dk.questionaire.gui.controller;
+package dk.easv.questionairemaven.gui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +29,9 @@ public class MainWindowController {
     private void fillQuestionaire(ActionEvent actionEvent) throws IOException {
 
         // Open questionaire window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/QuestionaireWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/QuestionaireWindow.fxml"));
+
         Parent scene = loader.load();
         Stage stage = new Stage();
 

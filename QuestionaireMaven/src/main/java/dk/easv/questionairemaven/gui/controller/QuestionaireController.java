@@ -1,4 +1,4 @@
-package dk.questionaire.gui.controller;
+package dk.easv.questionairemaven.gui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class QuestionaireController implements Initializable{
+public class QuestionaireController implements Initializable {
 
     private int score = 0;
     private MainWindowController mainController;
@@ -40,13 +40,13 @@ public class QuestionaireController implements Initializable{
      */
     @FXML
     private void close(ActionEvent actionEvent) {
-       //Stage parent = (Stage) lblName.getScene().getWindow();
+        //Stage parent = (Stage) lblName.getScene().getWindow();
 
-       if (actionEvent.getSource() instanceof Node) {
-           Node n = (Node) actionEvent.getSource();
-           Stage parent = (Stage) n.getScene().getWindow();
-           parent.close();
-       }
+        if (actionEvent.getSource() instanceof Node) {
+            Node n = (Node) actionEvent.getSource();
+            Stage parent = (Stage) n.getScene().getWindow();
+            parent.close();
+        }
     }
 
     /**
