@@ -30,8 +30,21 @@ public class MainWindowController {
         Stage stage = new Stage();
         stage.setScene(new Scene(scene));
 
+        // Send a reference to the parent to Window1Controller
+        Window1Controller controller = loader.getController();
+        controller.setParent(this);
+
+
         // Set the modality to Application (you must close Window1 before going to the parent window
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
+
+
+    public void setName(String nameParam) {
+
+        // set label to display nameParam
+        welcomeText.setText(nameParam);
+    }
+
 }
