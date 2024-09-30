@@ -54,6 +54,8 @@ public class MainApp extends Application {
         // Create parent node and tell the loader object to load the FXML file
         Parent scene = loader.load();
 
+        int tal1 = 42;
+
         // Instruct the stage to show a new scene with the contents of the FXML file
         stage.setScene(new Scene(scene));
         stage.show();
