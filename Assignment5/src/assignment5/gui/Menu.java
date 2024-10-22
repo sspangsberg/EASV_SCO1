@@ -72,7 +72,7 @@ public abstract class Menu
         {
             try
             {
-                System.out.println("Enter selection: ");
+                System.out.print("Enter selection: ");
                 Scanner sc = new Scanner(System.in);
                 int x = sc.nextInt();
                 if (x >= 0 && x <= menuItems.length)

@@ -1,6 +1,6 @@
 package assignment5.be;
 
-public abstract class Person {
+public class Person {
     private int id;
     private String email;
     private String name;
