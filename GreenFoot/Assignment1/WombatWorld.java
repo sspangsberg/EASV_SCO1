@@ -18,17 +18,21 @@ public class WombatWorld extends World
      */
     public WombatWorld() 
     {
-        super(8, 8, 60);        
+        super(16, 16, 60);        
         setBackground("cell.jpg");
         setPaintOrder(Leaf.class, Wombat.class);
         
         populate();
-    }
-
+        
+    }  
     
+    
+    /**
+     * 
+     */
     public void act() {
         
-        if (Greenfoot.getRandomNumber(80) == 1) { // Exercise C
+        if (Greenfoot.getRandomNumber(8) == 1) { // Exercise C
             randomLeaves(5);
             randomStones(1);
         }
@@ -36,13 +40,14 @@ public class WombatWorld extends World
     
     
     /**
-     * Populate the world with a fixed scenario of wombats and leaves.
+     * Populate the world with a fixed scenario of actors.
      */    
     public void populate()
     {        
-        randomWombats(2);
-        randomLeaves(15);
-        randomStones(2);
+        randomWombats(6);
+        randomLeaves(40);
+        randomStones(6);
+        randomPolarBear(2); // Exercise E
     }
     
     
@@ -58,6 +63,23 @@ public class WombatWorld extends World
             int y = Greenfoot.getRandomNumber(getHeight());
             
             addObject(newWombat, x, y);
+        }
+    }
+    
+    
+    /**
+     * Place a number of PolarBears into the world at random places.
+     * The number of PolarBears can be specified.
+     * Exercise E
+     */
+    public void randomPolarBear(int howMany)
+    {
+        for(int i=0; i<howMany; i++) {
+            PolarBear newPolarBear = new PolarBear();
+            int x = Greenfoot.getRandomNumber(getWidth());
+            int y = Greenfoot.getRandomNumber(getHeight());
+            
+            addObject(newPolarBear, x, y);
         }
     }
     
@@ -80,8 +102,8 @@ public class WombatWorld extends World
     
     
     /**
-     * Place a number of leaves into the world at random places.
-     * The number of leaves can be specified.
+     * Place a number of stones into the world at random places.
+     * The number of stones can be specified.
      */
     public void randomStones(int howMany)
     {

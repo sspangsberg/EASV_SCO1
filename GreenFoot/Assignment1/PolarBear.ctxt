@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=PolarBear
+comment0.text=\n\ Write\ a\ description\ of\ class\ PolarBear\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=PolarBear()
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ PolarBear\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.params=
+comment3.target=void\ turnLeft()
+comment3.text=\n\ Turns\ towards\ the\ left.\n
+comment4.params=
+comment4.target=boolean\ canMove()
+comment4.text=\n\ Test\ if\ we\ can\ move\ forward.\ Return\ true\ if\ we\ can,\ false\ otherwise.\n
+comment5.params=
+comment5.target=void\ hunt()
+comment5.text=\n\ Check\ whether\ there\ is\ a\ wombat\ within\ distance\ or\ on\ location\ as\ polarbear.\n
+comment6.params=
+comment6.target=void\ move()
+comment6.text=\n\ Move\ one\ cell\ forward\ in\ the\ current\ direction.\n
+comment7.params=direction
+comment7.target=void\ setDirection(int)
+comment7.text=\n\ Sets\ the\ direction\ we're\ facing.\ The\ 'direction'\ parameter\ must\n\ be\ in\ the\ range\ [0..3].\n
+numComments=8
