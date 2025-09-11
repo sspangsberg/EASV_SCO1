@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DragonBoss extends Dragon
 {
+    /**
+     * 
+     */
     public DragonBoss(int speedParam) {
         super(speedParam);
     }

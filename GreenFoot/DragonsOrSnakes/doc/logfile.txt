@@ -1,0 +1,35 @@
+Class documentation
+<---- javadoc command: ---->
+javadoc
+-author
+-version
+-nodeprecated
+-protected
+-Xdoclint:none
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+21
+-classpath
+/Applications/Greenfoot.app/Contents/Java/greenfoot.jar:/Applications/Greenfoot.app/Contents/Java/bluejcore.jar:/Applications/Greenfoot.app/Contents/Java/javafx-web-21.0.3-mac-aarch64.jar:/Applications/Greenfoot.app/Contents/Java/javafx-base-21.0.3-mac-aarch64.jar:/Applications/Greenfoot.app/Contents/Java/javafx-graphics-21.0.3-mac-aarch64.jar:/Applications/Greenfoot.app/Contents/Java/javafx-media-21.0.3-mac-aarch64.jar:/Applications/Greenfoot.app/Contents/Java/javafx-fxml-21.0.3-mac-aarch64.jar:/Applications/Greenfoot.app/Contents/Java/javafx-swing-21.0.3-mac-aarch64.jar:/Applications/Greenfoot.app/Contents/Java/javafx-controls-21.0.3-mac-aarch64.jar:/Applications/Greenfoot.app/Contents/Java/junit-4.12.jar:/Applications/Greenfoot.app/Contents/Java/junit-jupiter-params-5.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-jupiter-api-5.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-jupiter-engine-5.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-platform-suite-api-1.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-vintage-engine-5.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-jupiter-5.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-platform-engine-1.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-platform-launcher-1.5.2.jar:/Applications/Greenfoot.app/Contents/Java/junit-platform-commons-1.5.2.jar:/Applications/Greenfoot.app/Contents/Java/hamcrest-core-1.3.jar:/Applications/Greenfoot.app/Contents/Java/opentest4j-1.2.0.jar:/Applications/Greenfoot.app/Contents/Java/bluej.jar:/Applications/Greenfoot.app/Contents/Java/classgraph-4.8.90.jar:/Applications/Greenfoot.app/Contents/Java/diffutils-1.2.1.jar:/Applications/Greenfoot.app/Contents/Java/commons-logging-1.2.jar:/Applications/Greenfoot.app/Contents/Java/jl1.0.1.jar:/Applications/Greenfoot.app/Contents/Java/opencsv-2.3.jar:/Applications/Greenfoot.app/Contents/Java/opencsv-2.4.jar:/Applications/Greenfoot.app/Contents/Java/xom-1.3.9.jar:/Applications/Greenfoot.app/Contents/Java/lang-stride.jar:/Applications/Greenfoot.app/Contents/Java/nsmenufx-3.1.0.jar:/Applications/Greenfoot.app/Contents/Java/wellbehavedfx-0.3.3.jar:/Applications/Greenfoot.app/Contents/Java/guava-33.3.1-jre.jar:/Applications/Greenfoot.app/Contents/Java/failureaccess-1.0.2.jar:/Applications/Greenfoot.app/Contents/Java/simple-png-javafx-0.2.0.jar:/Applications/Greenfoot.app/Contents/Java/simple-png-0.2.0.jar:/Applications/Greenfoot.app/Contents/Java/httpcore-4.4.13.jar:/Applications/Greenfoot.app/Contents/Java/httpmime-4.1.1.jar:/Applications/Greenfoot.app/Contents/Java/httpclient-4.5.13.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.base.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.controls.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.fxml.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.graphics.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.media.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.properties.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.swing.jar:/Applications/Greenfoot.app/Contents/Java/javafx/javafx.web.jar:/Users/user/Work/Temp/Greenfoot/DragonsOrSnakes
+-d
+/Users/user/Work/Temp/Greenfoot/DragonsOrSnakes/doc
+-encoding
+UTF-8
+-charset
+UTF-8
+/Users/user/Work/Temp/Greenfoot/DragonsOrSnakes/Wizard.java
+<---- end of javadoc command ---->
+Loading source file /Users/user/Work/Temp/Greenfoot/DragonsOrSnakes/Wizard.java...
+Constructing Javadoc information...
+warning: unknown enum constant Tag.Any
+  reason: class file for threadchecker.Tag not found
+warning: unknown enum constant Tag.Any
+Standard Doclet version 21.0.4+7-LTS
+Building tree for all the packages and classes...
+Generating /Users/user/Work/Temp/Greenfoot/DragonsOrSnakes/doc/Wizard.html...
+Generating /Users/user/Work/Temp/Greenfoot/DragonsOrSnakes/doc/package-summary.html...
+Generating /Users/user/Work/Temp/Greenfoot/DragonsOrSnakes/doc/index.html...
+2 warnings

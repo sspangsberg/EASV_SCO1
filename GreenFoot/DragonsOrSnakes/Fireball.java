@@ -10,9 +10,7 @@ import java.util.List;
  */
 public class Fireball extends Actor
 {
-    // declare instance variables
     private Dragon target;
-    private MyWorld gameManager;
     
     /**
      * Constructor for objects of class Fireball
@@ -24,42 +22,30 @@ public class Fireball extends Actor
     
     public void act() {
         
-        // Get a reference to MyWorld (NOT World), so we are able to call increaseScore()
-        gameManager = (MyWorld) getWorld();
-        
-        if (target.getWorld() == null) 
-            return;
+        if (getWorld() == null) return;
+        else
+        {
+            // only move if we have a dragon target and a scene (world)
+            if (target != null && target.getWorld() != null) {
+                turnTowards(target.getX(), target.getY()); 
+            }
             
-        // move towards the dragon target
-        turnTowards(target.getX(), target.getY()); 
-        move(4);
-        
-        // Get a list of dragons that this fireball hits
-        List<Dragon> dragons = getIntersectingObjects(Dragon.class);
-        
-        // enhanced for loop (foreach)
-        for (Dragon currentDragon : dragons) {
-            // remove the dragon and update score, if theWorld is not null
-            if (gameManager != null) {
-                // a) remove dragon
-                gameManager.removeObject(currentDragon);
-                
-                // b) update score
-                gameManager.increaseScore();                
+            move(4);
+            
+            // remove all dragons that fireball hit
+            List<Dragon> dragons = getIntersectingObjects(Dragon.class);
+            
+            for(int i=0; i<dragons.size(); i++) {
+                getWorld().removeObject(dragons.get(i)); // List / arrays indexes are zero based (0,1,2,3,4)
+            }
+            
+            // remove fireball if it has passed nearby dragons or 
+            // is at the edge of scene
+            if (dragons.size() > 0 || isAtEdge()) {
+                getWorld().removeObject(this);
+                return;
             }
         }
-        
-        // remove the fireball if 
-        if (dragons.size() > 0) {
-            getWorld().removeObject(this);
-        }
-        
-        
-        /* normal for loop
-        for(int i=dragons.size()-1; i >= 0; i--) {
-            getWorld().removeObject(dragons.get(i)); // List / arrays indexes are zero based (0,1,2,3,4)
-        }
-        */
         
     }
 }

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ScoreBoard
+comment0.text=\n\ Write\ a\ description\ of\ class\ Scoreboard\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=ScoreBoard()
+comment1.text=\n\ \n
+comment2.params=
+comment2.target=void\ updateScoreBoard()
+comment2.text=\n\ 7)\ Scoreboard\ with\ amount\ of\ dragon\ kills\ (redundant\ code)\n
+numComments=3

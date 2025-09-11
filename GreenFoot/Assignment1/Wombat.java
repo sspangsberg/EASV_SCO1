@@ -27,7 +27,7 @@ public class Wombat extends Actor
     private boolean isChild = false; // Exercise D
     private int age = 0; // Exercise D
 
-    public Wombat(boolean isChildParam)
+    public Wombat(boolean isChildParam) // konstruktør
     {
         setDirection(EAST);
         leavesEaten = 0;
@@ -80,7 +80,7 @@ public class Wombat extends Actor
     private void handleSteps() { // Exercise 2+3
          if (stepsTaken < 50) {
             
-             // Exercise D
+            // Exercise D
             if (!isChild && pregnancy != -1 && pregnancy < 9)
                 pregnancy++;
             else if (pregnancy == 9) {

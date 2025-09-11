@@ -47,7 +47,7 @@ public class WombatWorld extends World
         randomWombats(6);
         randomLeaves(40);
         randomStones(6);
-        randomPolarBear(2); // Exercise E
+        randomPolarBear(1); // Exercise E
     }
     
     
