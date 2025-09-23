@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.multiplewindows.controllers.Window1Controller">
+   <children>
+      <Label fx:id="lblGreetings" alignment="CENTER" layoutX="206.0" layoutY="43.0" text="Window #1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDataToMain" layoutX="120.0" layoutY="150.0" promptText="Enter your score here" />
+      <Button layoutX="121.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleSendDataToMain" prefHeight="26.0" prefWidth="160.0" text="Send data to main" />
+   </children>
+</AnchorPane>

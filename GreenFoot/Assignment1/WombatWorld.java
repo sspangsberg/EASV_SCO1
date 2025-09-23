@@ -32,10 +32,13 @@ public class WombatWorld extends World
      */
     public void act() {
         
-        if (Greenfoot.getRandomNumber(8) == 1) { // Exercise C
+        if (Greenfoot.getRandomNumber(100) % 33 == 0) { // Exercise C
             randomLeaves(5);
             randomStones(1);
         }
+        
+        
+        
     }
     
     

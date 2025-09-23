@@ -21,6 +21,7 @@ public class Main extends Application {
         Parent root = loader.load();
         startStage.setScene(new Scene(root));
 
+
         startStage.show();
     }
 }
