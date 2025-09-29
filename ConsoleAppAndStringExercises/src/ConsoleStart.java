@@ -8,12 +8,13 @@ public class ConsoleStart {
      */
     public static void main(String[] args) {
 
+
         //exercise1();
         //exercise2();
         //exercise3();
         //exercise4();
-        //exercise5();
-        exercise6();
+        exercise5();
+        //exercise6();
     }
 
     /**
@@ -26,7 +27,7 @@ public class ConsoleStart {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Exercise 1:");
-        System.out.print("Write something: ");
+        System.out.println("Write something: ");
         String input = keyboard.nextLine();
 
         System.out.println("You wrote this: <" + input + ">");
@@ -45,7 +46,7 @@ public class ConsoleStart {
         System.out.print("Write something: ");
         String input = keyboard.nextLine();
 
-        System.out.println("Length: " + input.length());
+        System.out.println("Length: " + input.replace(" ", "").length());
     }
 
 
@@ -59,7 +60,6 @@ public class ConsoleStart {
         System.out.println("Exercise 3:");
         System.out.print("Write something: ");
         String input = keyboard.nextLine();
-
 
         String output = "";
         for (int i = 0; i < input.length(); i++) // iterate through all characters in the string
@@ -94,16 +94,17 @@ public class ConsoleStart {
         // Short-cut using StringBuilder
         StringBuilder sb = new StringBuilder(input);
         System.out.println("Reverse: " + sb.reverse());
-
         */
+
 
         // Manual approach using normal for loop
         String output = "";
 
         for (int i = input.length() - 1; i >= 0 ; i--) {
-            output = output + input.charAt(i);
+            //output = output + input.charAt(i);
+            System.out.print(input.charAt(i));
         }
-        System.out.println("Reverse:" + output);
+        //System.out.println("Reverse:" + output);
     }
 
 
@@ -144,7 +145,7 @@ public class ConsoleStart {
         char[] chars = input.toCharArray(); // split string into chars (in array)
 
         // Iterate through all characters in input
-        for (char c : chars)
+        for (char c : chars) // enhanced for loop
         {
             // Iterate through all the english characters
             for (int i = 0; i < english.length; i++)

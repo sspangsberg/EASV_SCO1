@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,6 +20,8 @@ public class MainWindowController {
     private TextField txtName;
     @FXML
     private Label lblScore, lblName, lblText;
+    @FXML
+    private ListView lvParticipants;
 
     /**
      * Event handler that fires off when a new questionaire is filled out
@@ -26,7 +29,7 @@ public class MainWindowController {
      * @throws IOException
      */
     @FXML
-    private void fillQuestionaire(ActionEvent actionEvent) throws IOException {
+    private void btnFillQuestionaire(ActionEvent actionEvent) throws IOException {
 
         // Open questionaire window
         FXMLLoader loader = new FXMLLoader();
@@ -38,6 +41,7 @@ public class MainWindowController {
         // Get the controller, so we can give it a reference to the main controller (this)
         QuestionaireController controller = loader.getController();
         controller.setParentController(this);
+        controller.setName(txtName.getText());
 
         stage.setTitle("Questionaire Fillout");
         stage.setScene(new Scene(scene));
@@ -50,8 +54,7 @@ public class MainWindowController {
      * Setter for the score, when a questionaire has been filled out
      * @param score
      */
-    public void setScore(int score) {
-        this.score = score;
-        lblScore.setText(Integer.toString(score));
+    public void setData(String name, int score) {
+        lvParticipants.getItems().add(name + " : " + score);
     }
 }

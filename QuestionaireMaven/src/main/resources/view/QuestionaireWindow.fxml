@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.questionairemaven.gui.controller.QuestionaireController">
+<VBox fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.questionairemaven.gui.controller.QuestionaireController">
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
             <children>
@@ -29,8 +29,6 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -67,11 +65,6 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </GridPane.margin>
                 </HBox>
-                <Label text="I like to program in Greenfoot">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
                 <HBox alignment="CENTER_LEFT" layoutX="421.0" layoutY="12.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
                         <RadioButton mnemonicParsing="false" onAction="#handleInput" text="Disagree">
@@ -103,13 +96,16 @@
                             <font>
                                 <Font size="20.0" />
                             </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q3" />
+                     </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Neutral">
+                        <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q3">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Agree">
+                        <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q3">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -125,13 +121,16 @@
                             <font>
                                 <Font size="20.0" />
                             </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q4" />
+                     </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Neutral">
+                        <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q4">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Agree">
+                        <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q4">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -147,13 +146,16 @@
                             <font>
                                 <Font size="20.0" />
                             </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q5" />
+                     </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Neutral">
+                        <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q5">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Agree">
+                        <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q5">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -169,13 +171,16 @@
                             <font>
                                 <Font size="20.0" />
                             </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q6" />
+                     </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Neutral">
+                        <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q6">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Agree">
+                        <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q6">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -191,13 +196,16 @@
                             <font>
                                 <Font size="20.0" />
                             </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q7" />
+                     </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Neutral">
+                        <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q7">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Agree">
+                        <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q7">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -207,16 +215,106 @@
                         <Insets left="10.0" />
                     </GridPane.margin>
                 </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="421.0" layoutY="325.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Disagree">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q9" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q9">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q9">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </HBox>
+                <Label text="I like to program in Greenfoot">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
                 <Label text="I think Java is fun" GridPane.rowIndex="1">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Label>
+            <Label layoutX="10.0" layoutY="62.0" text="Java is my preferred language" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="105.0" text="My assignments are fun" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="148.0" text="My assignments are to easy" GridPane.rowIndex="4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="191.0" text="I always do my assignments" GridPane.rowIndex="5">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="234.0" text="I always attend class" GridPane.rowIndex="6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="277.0" text="I understand what is going on in class" GridPane.rowIndex="7">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="320.0" text="I think programming is fun" GridPane.rowIndex="8">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" layoutX="421.0" layoutY="325.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Disagree">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="q8" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q8">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </HBox>
             </children>
         </GridPane>
-        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+        <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="802.0" spacing="100.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#calculateScore" text="Calculate Score:">
+                <Button mnemonicParsing="false" onAction="#btnCalculateScore" text="Calculate Score">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -225,13 +323,40 @@
                     <font>
                         <Font size="20.0" />
                     </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
                 </Button>
-                <Label fx:id="lblScore" text="Label" />
-                <Label text="Label" />
+                <Label fx:id="lblScoreText" text="Score">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin></Label>
+                <Label fx:id="lblScoreVal">
+               <font>
+                  <Font size="36.0" />
+               </font></Label>
             </children>
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding></HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="30.0" layoutY="591.0" prefHeight="53.0" prefWidth="802.0" spacing="100.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnSaveScore" prefHeight="39.0" prefWidth="153.0" text="Save score...">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />

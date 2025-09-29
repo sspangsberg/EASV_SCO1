@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="411.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.questionairemaven.gui.controller.MainWindowController">
+<AnchorPane prefHeight="191.0" prefWidth="394.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.questionairemaven.gui.controller.MainWindowController">
     <children>
-        <Button layoutX="149.0" layoutY="195.0" mnemonicParsing="false" onAction="#fillQuestionaire" prefHeight="55.0" prefWidth="125.0" text="Fill Questionaire" />
-        <TextField fx:id="txtName" layoutX="131.0" layoutY="100.0" />
-        <Label fx:id="lblName" layoutX="131.0" layoutY="75.0" text="Name:" />
-        <Label fx:id="lblScore" layoutX="182.0" layoutY="153.0" text="Score:" />
+        <Button layoutX="24.0" layoutY="72.0" mnemonicParsing="false" onAction="#btnFillQuestionaire" prefHeight="77.0" prefWidth="160.0" text="Fill Questionaire" />
+        <TextField fx:id="txtName" layoutX="24.0" layoutY="25.0" promptText="Type in your name" />
+      <ListView fx:id="lvParticipants" layoutX="240.0" layoutY="52.0" prefHeight="99.0" prefWidth="140.0" />
+      <Label layoutX="240.0" layoutY="28.0" text="Participants:" />
     </children>
 </AnchorPane>

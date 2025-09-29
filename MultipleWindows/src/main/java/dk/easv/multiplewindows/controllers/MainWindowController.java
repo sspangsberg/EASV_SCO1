@@ -37,7 +37,7 @@ public class MainWindowController {
         // Get controller
         Window1Controller controller = fxmlLoader.getController();
         controller.setGreetingsText("Welcome to Window#1 " + txtName.getText());
-        controller.setParent(this);
+        //controller.setParent(this);
 
         stage.show();
     }
