@@ -42,7 +42,7 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1">
                     <children>
-                        <RadioButton mnemonicParsing="false" onAction="#handleInput" text="Disagree">
+                        <RadioButton mnemonicParsing="false" text="Disagree">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -50,12 +50,12 @@
                                 <ToggleGroup fx:id="q1" />
                             </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" onAction="#handleInput" text="Neutral" toggleGroup="$q1">
+                        <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q1">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" onAction="#handleInput" text="Agree" toggleGroup="$q1">
+                        <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q1">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -67,7 +67,7 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="421.0" layoutY="12.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <RadioButton mnemonicParsing="false" onAction="#handleInput" text="Disagree">
+                        <RadioButton mnemonicParsing="false" text="Disagree">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -75,12 +75,12 @@
                                 <ToggleGroup fx:id="q2" />
                             </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" onAction="#handleInput" text="Neutral" toggleGroup="$q2">
+                        <RadioButton mnemonicParsing="false" text="Neutral" toggleGroup="$q2">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" onAction="#handleInput" text="Agree" toggleGroup="$q2">
+                        <RadioButton mnemonicParsing="false" text="Agree" toggleGroup="$q2">
                             <font>
                                 <Font size="20.0" />
                             </font>

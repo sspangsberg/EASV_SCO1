@@ -1,30 +1,22 @@
 package dk.easv.questionairemaven.gui.controller;
 
-import dk.easv.questionairemaven.gui.util.FXUtils;
 
 // Java imports
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 
 
-public class QuestionaireController implements Initializable{
+public class QuestionaireController {
 
     private int score = 0;
     private String name;
     private MainWindowController parent;
-
-    @FXML
-    private VBox container;
 
     @FXML
     private Label lblName, lblScoreVal;
@@ -82,16 +74,6 @@ public class QuestionaireController implements Initializable{
 
 
     /**
-     * Event handler for all radio buttons
-     * @param actionEvent
-     */
-    @FXML
-    private void handleInput(ActionEvent actionEvent) {
-        //handleCalculateScore();
-    }
-
-
-    /**
      * Calculate the score and update windows
      */
     private int calculateScore() {
@@ -119,26 +101,6 @@ public class QuestionaireController implements Initializable{
     }
 
 
-    /**
-     *
-     * @param location
-     * The location used to resolve relative paths for the root object, or
-     * {@code null} if the location is not known.
-     *
-     * @param resources
-     * The resources used to localize the root object, or {@code null} if
-     * the root object was not localized.
-     */
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        List<RadioButton> rbList = FXUtils.getAllRadioButtons(container);
-
-        // dynamically add the event handler to all RadioButtons
-        for (RadioButton rb: rbList) {
-            rb.setOnAction(this::handleInput);
-        }
-    }
 
     @FXML
     private void btnSaveScore(ActionEvent actionEvent) {
