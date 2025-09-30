@@ -1,6 +1,5 @@
 package dk.easv.questionairemaven.gui.controller;
 
-
 // Java imports
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,13 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
 public class QuestionaireController {
 
-    private int score = 0;
     private String name;
     private MainWindowController parent;
 
@@ -78,9 +75,10 @@ public class QuestionaireController {
      */
     private int calculateScore() {
 
+        // create array of toggle groups (groups of radiobuttons)
         ToggleGroup[] questions = {q1,q2,q3,q4,q5,q6,q7,q8,q9};
 
-        score = 0; // calculate the score
+        int score = 0; // create local variable to hold score
 
         // iterate through lists of questions (ToggleGroups)
         for (ToggleGroup question : questions) {
@@ -104,6 +102,7 @@ public class QuestionaireController {
 
     @FXML
     private void btnSaveScore(ActionEvent actionEvent) {
-        this.parent.setData(name, calculateScore());
+        int score = calculateScore();
+        this.parent.setData(name, score);
     }
 }

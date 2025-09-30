@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -14,12 +13,8 @@ import java.io.IOException;
 
 public class MainWindowController {
 
-    private int score;
-
     @FXML
     private TextField txtName;
-    @FXML
-    private Label lblScore, lblName, lblText;
     @FXML
     private ListView lvParticipants;
 
@@ -52,6 +47,7 @@ public class MainWindowController {
 
     /**
      * Setter for the score, when a questionaire has been filled out
+     * @param name
      * @param score
      */
     public void setData(String name, int score) {
