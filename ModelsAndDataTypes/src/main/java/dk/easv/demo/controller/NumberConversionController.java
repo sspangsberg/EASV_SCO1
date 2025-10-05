@@ -24,10 +24,16 @@ public class NumberConversionController implements Initializable {
 
     @FXML
     private TextField txtNumberInput;
+
     @FXML
     private Button btnCalcMilesToKm;
     @FXML
     private Label lblResult;
+
+
+
+
+
 
     /**
      *
@@ -41,6 +47,7 @@ public class NumberConversionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         TextInputDialog dialog = new TextInputDialog("");
 
         dialog.setTitle("Text Input Dialog");
@@ -51,7 +58,10 @@ public class NumberConversionController implements Initializable {
             String message = ncModel.getGreetingsMessage(result.get());
             lblWelcomeText.setText(message);
         }
+
     }
+
+
 
 
     /**
@@ -64,8 +74,11 @@ public class NumberConversionController implements Initializable {
         double txtFieldValue = Double.parseDouble(txtNumberInput.getText());
         double result = ncModel.getMilesFromKilometers(txtFieldValue);
         //String resultInMiles = String.valueOf(result);
-        String resultAsString = String.format("%.4f", result);
-        lblResult.setText(resultAsString);
+
+
+
+        //String resultAsString = String.format("%.2f", result);
+        lblResult.setText(result + "");
     }
 
 

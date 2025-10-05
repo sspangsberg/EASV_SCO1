@@ -7,8 +7,8 @@ public class NumberConversionModel {
      * @param km
      * @return
      */
-    public double getMilesFromKilometers(double km) {
-        return km / 1.609344f;
+    public double getMilesFromKilometers(double inputParam) {
+        return inputParam / 1.609344f;
     }
 
     /**
@@ -30,3 +30,11 @@ public class NumberConversionModel {
         return "Hello, " + name + ". Greetings from the top Java developer class in town";
     }
 }
+
+
+
+
+
+
+
+
